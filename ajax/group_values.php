@@ -21,6 +21,7 @@ $default_options = array('display_emptychoice' => true,
                          'condition'           => $rand);
 
 
+
 if (! empty($condition)) {
    $_GET = array_merge($_GET, $default_options);
    $_SESSION['glpicondition'][$rand] = $condition;
@@ -30,5 +31,5 @@ if (! empty($condition)) {
    $_SESSION['glpicondition'][$rand]  = getEntitiesRestrictRequest(" ", "", "entities_id",
                                                        $_SESSION['glpiactive_entity'], 1). "AND glpi_groups.is_assign";
 }
-$_POST = $default_options; // fix for glpi 9.1
+$_POST = array_merge($_POST, $default_options); // fix for glpi 9.1
 require ("../../../ajax/getDropdownValue.php");

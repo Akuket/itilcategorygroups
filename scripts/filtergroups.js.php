@@ -63,6 +63,7 @@ cat = getItilcategories_id();
       closeOnSelect:           false,
       ajax: {
          url: url,
+         type: 'POST',
          dataType: 'json',
          data: function (term, page) {
             return {
